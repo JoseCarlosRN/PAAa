@@ -17,22 +17,22 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class ExternalSort {
-	// Dividimos o arquivo em pequenos blocos. Se os blocos s„o
-	// muito pequenos, criamos arquivos tempor·rios.
-	// Se eles s„o muito grandes, operamos o programa com muita memÛria.
+	// Dividimos o arquivo em pequenos blocos. Se os blocos s√£o
+	// muito pequenos, criamos arquivos tempor√°rios.
+	// Se eles s√£o muito grandes, operamos o programa com muita mem√≥ria.
 
 	public static long calcularTamBloco(File arq_inicial)
 	{
 		long tam_arq = arq_inicial.length();    
 
-		// N„o queremos abrir mais que 1024 arquivos tempor·rios, melhor 
-		// rodar com memÛria cheia primeiro.
+		// N√£o queremos abrir mais que 1024 arquivos tempor√°rios, melhor 
+		// rodar com mem√≥ria cheia primeiro.
 
 		final int MAX_TEM_PARQ = 1024;
 		long tam_bloco = tam_arq / MAX_TEM_PARQ ;
 
-		// E n„o queremos criar muitos arquivos tempor·rios tambÈm.
-		// Ent„o ajustamos o tamanho do bloco para isso.
+		// E n√£o queremos criar muitos arquivos tempor√°rios tamb√©m.
+		// Ent√£o ajustamos o tamanho do bloco para isso.
 
 		long memoria_livre = Runtime.getRuntime().freeMemory();
 		System.out.println(Runtime.getRuntime().freeMemory());
@@ -40,13 +40,13 @@ public class ExternalSort {
 			tam_bloco = memoria_livre/2;
 		else
 			if(tam_bloco >= memoria_livre) 
-				System.err.println("Programa rodando com memÛria cheia. ");
+				System.err.println("Programa rodando com mem√≥ria cheia. ");
 
 		return tam_bloco;
 	}    
 
-	// Esse mÈtodo carrega o arquivo por blocos, ordena na mÈmoria,
-	// escreve o resultado em um grupo de arquivos tempor·rios e ent„o
+	// Esse m√©todo carrega o arquivo por blocos, ordena na m√©moria,
+	// escreve o resultado em um grupo de arquivos tempor√°rios e ent√£o
 	// posteriormente usaremos o merge sort neles.
 
 	public static List<File> carregarBloco(File arq, Comparator<String> cmp) throws IOException 
@@ -142,7 +142,7 @@ public class ExternalSort {
 
 	public static void main(String[] args) throws IOException {
 		int i, op;
-		final int QTD = 20; // Esse quantidade de registros equivale a 6 GB. 1075268817
+		final int QTD = 1075268817; // Esse quantidade de registros equivale a 6 GB. 1075268817
 
 		Random rand = new Random();
 		Scanner scan = new Scanner(System.in);
@@ -150,7 +150,7 @@ public class ExternalSort {
 		String arq_inicial = "C:/Users/jose_/Desktop/texto.txt";
 		String arq_ordenado = "C:/Users/jose_/workspace/teste/files/Arquivo Ordenado.txt";
 
-		System.out.println("Infome uma opÁ„o: ");
+		System.out.println("Infome uma op√ß√£o: ");
 		System.out.println("1 - Gerar arquivo");
 		System.out.println("2 - Ler arquivo");
 		op = scan.nextInt();
@@ -162,7 +162,7 @@ public class ExternalSort {
 				PrintWriter gravarArq = new PrintWriter(arq);
 
 				for (i = 0; i < QTD; i++)
-					gravarArq.println(rand.nextInt(8999)+1000); // Gera apenas n˙meros randomicos de 32 bits (1000 a 9999).
+					gravarArq.println(rand.nextInt(8999)+1000); // Gera apenas n√∫meros randomicos de 32 bits (1000 a 9999).
 
 				System.out.println("Arquivo gerado com sucesso!");
 				arq.close();

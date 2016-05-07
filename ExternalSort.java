@@ -16,6 +16,12 @@ import java.util.PriorityQueue;
 import java.util.Random;
 import java.util.Scanner;
 
+/* Trabalho elaborado por:
+Carlos Magno Badu de Sousa Junior - 110820
+José Carlos Rangel do Nascimento - 126082
+Mayssa Laiane Nogueira da Silva - 123390
+*/
+
 public class ExternalSort {
 	// Dividimos o arquivo em pequenos blocos. Se os blocos são
 	// muito pequenos, criamos arquivos temporários.
